@@ -80,3 +80,31 @@
       turtle.goto(-WIDTH // 2 + 60, HEIGHT // 2 - 100)
       turtle.clear()
       turtle.write(f'Geração: {generation}', font=('Arial', 60, "normal"))
+      
+<p> Continuando, defina o rumo para 0 graus, mova-a para a posição inicial e limpe os desenhos gerados na tela: </p>
+
+    trig.setheading(0)
+    trig.goto(-WIDTH // 6, HEIGHT // 6)
+    trig.clear()
+
+<p> Calcule o comprimento dos movimentos para frente da tartaruga com base na geração atual: </p>
+
+    length = step / pow(3, gen)
+
+<p> Proporcione iteração sobre cada caractere na string do axioma, executando o comando apropriado para cada caractere. Se o caractere for 'F', a tartaruga avança pelo comprimento calculado acima. Se o caractere for '+', a tartaruga vira à direita no ângulo especificado. Se o caractere for '-', a tartaruga vira para a esquerda no ângulo especificado: </p>
+
+    for chr in axiom:
+      if chr == chr_1:
+          trig.forward(length)
+      elif chr == '+':
+          trig.right(angle)
+      elif chr == '-':
+          trig.left(angle)
+          
+<p> Por fim, aplique a regra especificada ao axioma atual, produzindo a próxima iteração do sistema L: </p>
+
+        axiom = apply_rules(axiom)
+<p> O loop então se repete para a próxima geração até que o loop tenha concluído todas as gerações.</p>
+<p> Logo, para concluir, aplique um comando que espera um clique do mouse antes de fechar a janela</p>
+    
+    screen.exitonclick()
